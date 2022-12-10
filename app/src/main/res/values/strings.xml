@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TFG_JoseAngel</string>
+    <string name="nueva_marca">NUEVA MARCA</string>
+    <string name="borrar_marca">BORRAR MARCA</string>
+    <string name="actualizar_marca">ACTUALIZAR MARCA</string>
+    <string name="nuevo_componente">NUEVO COMPONENTE</string>
+    <string name="mostrar_componente">MOSTRAR COMPONENTE</string>
+</resources>
