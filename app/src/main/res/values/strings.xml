@@ -5,4 +5,6 @@
     <string name="actualizar_marca">ACTUALIZAR MARCA</string>
     <string name="nuevo_componente">NUEVO COMPONENTE</string>
     <string name="mostrar_componente">MOSTRAR COMPONENTE</string>
+    <string name="register">REGISTER</string>
+    <string name="login">LOGIN</string>
 </resources>
