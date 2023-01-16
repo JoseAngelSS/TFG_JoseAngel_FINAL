@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "633641507774",
+    "project_id": "tfg-android-8aa3f",
+    "storage_bucket": "tfg-android-8aa3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633641507774:android:7e3f0b564e7dac08e537ef",
+        "android_client_info": {
+          "package_name": "com.GuisseppeInformatics.TFG_JoseAngel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633641507774-8tnmvvu5o9nar64t8qdg2thhmlv5hfq1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUrv4fyUNdljJjIyL3DNHrAb15IDH9AOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633641507774-8tnmvvu5o9nar64t8qdg2thhmlv5hfq1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
