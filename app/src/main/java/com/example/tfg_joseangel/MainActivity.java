@@ -1,7 +1,7 @@
 package com.example.tfg_joseangel;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import androidx.viewpager2.widget.ViewPager2;
@@ -35,12 +35,11 @@ public class MainActivity extends AppCompatActivity {
         tb1 = findViewById(R.id.tabL);
         vp2 = findViewById(R.id.viewP);
 
-        /*if(user == null){
+        if(user == null){
 
         }else{
             Intent intent = new Intent(this,HomeActivity.class);
             startActivity(intent);
-
-        }*/
+        }
     }
 }
