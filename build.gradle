@@ -1,7 +1,5 @@
 buildscript {
     repositories {
-        // Make sure that you have the following two repositories
-        google()  // Google's Maven repository
         mavenCentral()  // Maven Central repository
     }
     dependencies {
@@ -14,14 +12,6 @@ buildscript {
     id 'com.android.application' version '7.3.1' apply false
     id 'com.android.library' version '7.3.1' apply false
     id 'com.google.gms.google-services' version '4.3.14' apply false
-}
-
-allprojects {
-    repositories {
-        // Make sure that you have the following two repositories
-        google()  // Google's Maven repository
-        mavenCentral()  // Maven Central repository
-    }
 }
 
 task clean(type: Delete) {

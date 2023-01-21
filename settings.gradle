@@ -5,6 +5,8 @@ pluginManagement {
         mavenCentral()
     }
 }
+include ':Google'
+include ':Maven'
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
