@@ -16,4 +16,10 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="crear_producto">CREAR PRODUCTO</string>
+    <string name="modificar_producto">MODIFICAR PRODUCTO</string>
+    <string name="mostrar_producto">MOSTRAR PRODUCTO</string>
+    <string name="borrar_producto">BORRAR PRODUCTO</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

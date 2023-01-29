@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:633641507774:android:7e3f0b564e7dac08e537ef",
+        "mobilesdk_app_id": "1:633641507774:android:75ded7d0dc5563cee537ef",
         "android_client_info": {
-          "package_name": "com.GuisseppeInformatics.TFG_JoseAngel"
+          "package_name": "com.example.tfg_joseangel"
         }
       },
       "oauth_client": [
