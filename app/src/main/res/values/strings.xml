@@ -22,4 +22,10 @@
     <string name="borrar_producto">BORRAR PRODUCTO</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nombre">Nombre</string>
+    <string name="correo">Correo</string>
+    <string name="password">Password</string>
+    <string name="iniciar_sesi_n">Iniciar sesión</string>
+    <string name="registrarse">REGISTRARSE</string>
+    <string name="linkinicio">¿Ya estás registrado?</string>
 </resources>
