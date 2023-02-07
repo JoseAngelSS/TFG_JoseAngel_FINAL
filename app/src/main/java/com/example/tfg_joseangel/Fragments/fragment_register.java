@@ -1,4 +1,4 @@
-package com.example.tfg_joseangel;
+package com.example.tfg_joseangel.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tfg_joseangel.HomeActivity;
+import com.example.tfg_joseangel.R;
 import com.example.tfg_joseangel.clases.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

@@ -1,4 +1,4 @@
-package com.example.tfg_joseangel.ui.login;
+package com.example.tfg_joseangel.Fragments.login;
 
 /**
  * Class exposing authenticated user details to the UI.

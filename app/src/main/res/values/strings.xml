@@ -28,4 +28,10 @@
     <string name="iniciar_sesi_n">Iniciar sesión</string>
     <string name="registrarse">REGISTRARSE</string>
     <string name="linkinicio">¿Ya estás registrado?</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="precio">Precio</string>
+    <string name="nombreprod">Nombre</string>
+    <string name="referencia">Referencia</string>
+    <string name="marca">Marca</string>
+    <string name="crear">CREAR</string>
 </resources>

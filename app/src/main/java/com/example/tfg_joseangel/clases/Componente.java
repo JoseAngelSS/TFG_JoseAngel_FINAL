@@ -3,13 +3,13 @@ package com.example.tfg_joseangel.clases;
 import java.io.Serializable;
 
 public class Componente implements Serializable {
-    private int idComp;
+    private String idComp;
     private String nombre;
-    private double precio;
-    private int cantidad;
-    private int idMar;
+    private String precio;
+    private String cantidad;
+    private String idMar;
 
-    public Componente(int idComp, String nombre, double precio, int cantidad, int idMar) {
+    public Componente(String idComp, String nombre, String precio, String cantidad, String idMar) {
         this.idComp = idComp;
         this.nombre = nombre;
         this.precio = precio;
@@ -18,25 +18,25 @@ public class Componente implements Serializable {
     }
 
     public Componente() {
-        this.idComp = 0;
+        this.idComp = "";
         this.nombre = "";
-        this.precio = 0;
-        this.cantidad= 0;
-        this.idMar = 1;
+        this.precio = "";
+        this.cantidad= "";
+        this.idMar = "";
     }
 
-    public Componente(String nombre, double precio, int cantidad, int idMar){
+    public Componente(String nombre, String precio, String cantidad, String idMar){
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
         this.idMar = idMar;
     }
 
-    public int getIdComp() {
+    public String getIdComp() {
         return idComp;
     }
 
-    public void setIdComp(int idComp) {
+    public void setIdComp(String idComp) {
         this.idComp = idComp;
     }
 
@@ -48,27 +48,27 @@ public class Componente implements Serializable {
         this.nombre = nombre;
     }
 
-    public double getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 
-    public int getCantidad() {
+    public String getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
 
-    public int getIdMar() {
+    public String getIdMar() {
         return idMar;
     }
 
-    public void setIdMar(int idMar) {
+    public void setIdMar(String idMar) {
         this.idMar = idMar;
     }
 }
