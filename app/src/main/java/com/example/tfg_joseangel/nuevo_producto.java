@@ -3,9 +3,12 @@ package com.example.tfg_joseangel;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -27,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,7 +46,7 @@ public class nuevo_producto extends AppCompatActivity {
     private EditText edt_marca;
     public static final int NUEVA_IMAGEN = 1;
     Uri imagen_seleccionada = null;
-    ImageView img_newproduct;
+    //ImageView image_newproduct;
     @Override
     protected void onStart() {
         super.onStart();
@@ -69,7 +73,7 @@ public class nuevo_producto extends AppCompatActivity {
         edt_precio = (EditText) findViewById(R.id.edt_precio);
         edt_stock = (EditText) findViewById(R.id.edt_stock);
         edt_marca = (EditText) findViewById(R.id.edt_marca);
-        img_newproduct = (ImageView) findViewById(R.id.img_newproduct);
+        //image_newproduct = (ImageView) findViewById(R.id.image_newproduct);
     }
 
     public void new_product(View view){
@@ -87,8 +91,37 @@ public class nuevo_producto extends AppCompatActivity {
         // codigo para guardar la imagen del usuario en firebase store
         if(imagen_seleccionada != null) {
             String carpeta = c.getNombre();
-            ImagenesFirebase.subirFoto(carpeta,c.getNombre(), img_newproduct);
+            //ImagenesFirebase.subirFoto(carpeta,c.getNombre(), image_newproduct);
         }
     }
+    //------------------------------------------
+    public void cambiar_imagen(View view) {
+        Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        getIntent.setType("image/*");
 
+        Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        pickIntent.setType("image/*");
+
+        Intent chooserIntent = Intent.createChooser(getIntent, "Selecciona una imagen");
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
+        startActivityForResult(chooserIntent, NUEVA_IMAGEN);
+    }
+
+  /*  @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == NUEVA_IMAGEN && resultCode == Activity.RESULT_OK) {
+            imagen_seleccionada = data.getData();
+            Bitmap bitmap = null;
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imagen_seleccionada);
+                image_newproduct.setImageBitmap(bitmap);
+
+                //---------------------------------------------
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }*/
 }

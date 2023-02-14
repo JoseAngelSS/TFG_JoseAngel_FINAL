@@ -49,7 +49,6 @@ public class ImagenesFirebase {
                 // ...
             }
         });
-
     }
 
     public static void descargarFoto(String nombre_carpeta, String nombre, ImageView imagendescargada) {
@@ -76,11 +75,10 @@ public class ImagenesFirebase {
                 String errorMessage = exception.getMessage();
                 Log.i("firebase1",errorMessage);
                 Log.i("firebase1","error code" + String.valueOf(errorCode));
-                imagendescargada.setImageResource(R.drawable.caja);
+                //imagendescargada.setImageResource(R.drawable.caja);
             }
         });
     }
-
     //--------------------------------------------------------------------------------
     public static void borrarFoto(String nombre_carpeta, String foto) {
         FirebaseStorage storage = FirebaseStorage.getInstance();

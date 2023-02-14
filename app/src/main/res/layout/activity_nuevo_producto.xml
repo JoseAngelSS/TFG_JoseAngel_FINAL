@@ -93,17 +93,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_newproduct" />
-
-    <ImageView
-        android:id="@+id/img_newproduct"
-        android:layout_width="195dp"
-        android:layout_height="186dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_marca"
-        app:srcCompat="@drawable/caja" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_marca" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

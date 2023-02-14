@@ -22,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tfg_joseangel.HomeActivity;
 import com.example.tfg_joseangel.MainActivity;
 import com.example.tfg_joseangel.databinding.FragmentLoginBinding;
 
@@ -30,11 +31,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginFragment extends Fragment {
 
-    EditText login_email, login_pass;
-    FirebaseAuth auth;
+    private EditText login_email, login_pass;
+    private FirebaseAuth auth;
     Button bt_login;
 
     public void onCreate(Bundle savedInstanceState){
@@ -81,7 +83,8 @@ public class LoginFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    FirebaseUser user = auth.getCurrentUser();
+                    Intent intent = new Intent(getActivity(), HomeActivity.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(getActivity(), "Correo o clave INCORRECTOS, revise sus credenciales", Toast.LENGTH_LONG).show();

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,10 +27,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class fragment_register extends Fragment {
 
-    Button btn_reg;
-    EditText edt_nombre, edt_mail, edt_pass;
-    TextView txsing;
-    FirebaseAuth auth;
+    private Button btn_reg;
+    private EditText edt_nombre, edt_mail, edt_pass;
+    private TextView txsing;
+    private ProgressBar progressBar;
+    private FirebaseAuth auth;
     FirebaseDatabase firebaseDatabase;
 
     @Override
@@ -56,7 +58,6 @@ public class fragment_register extends Fragment {
                 registrar();
             }
         });
-
         txsing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {}

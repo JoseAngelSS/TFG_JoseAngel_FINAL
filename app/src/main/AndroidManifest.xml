@@ -13,6 +13,12 @@
         android:theme="@style/Theme.TFG_JoseAngel"
         tools:targetApi="31">
         <activity
+            android:name=".ModificarProducto"
+            android:exported="false" />
+        <activity
+            android:name=".MostrarProducto"
+            android:exported="false" />
+        <activity
             android:name=".nuevo_producto"
             android:exported="false">
             <meta-data
