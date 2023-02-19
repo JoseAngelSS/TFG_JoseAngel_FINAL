@@ -6,4 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".MostrarProducto">
 
+    <Button
+        android:id="@+id/btn_addprod"
+        android:layout_width="320dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:onClick="addProductoFirebaseUI"
+        android:text="Nuevo componente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_producto"
+        android:layout_width="373dp"
+        android:layout_height="528dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_buscar" />
+
+    <EditText
+        android:id="@+id/edt_buscar"
+        android:layout_width="198dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Nombre producto"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_addprod" />
+
+    <Button
+        android:id="@+id/btn_buscar"
+        android:layout_width="112dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:text="buscar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toEndOf="@+id/edt_buscar"
+        app:layout_constraintTop_toBottomOf="@+id/btn_addprod" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -93,6 +93,7 @@ public class nuevo_producto extends AppCompatActivity {
             String carpeta = c.getNombre();
             //ImagenesFirebase.subirFoto(carpeta,c.getNombre(), image_newproduct);
         }
+        Intent intent = new Intent(this, HomeActivity.class);
     }
     //------------------------------------------
     public void cambiar_imagen(View view) {
@@ -106,8 +107,7 @@ public class nuevo_producto extends AppCompatActivity {
         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
         startActivityForResult(chooserIntent, NUEVA_IMAGEN);
     }
-
-  /*  @Override
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == NUEVA_IMAGEN && resultCode == Activity.RESULT_OK) {
@@ -115,13 +115,11 @@ public class nuevo_producto extends AppCompatActivity {
             Bitmap bitmap = null;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imagen_seleccionada);
-                image_newproduct.setImageBitmap(bitmap);
-
-                //---------------------------------------------
+                //image_newproduct.setImageBitmap(bitmap);
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-    }*/
+    }
 }

@@ -10,7 +10,7 @@
         android:id="@+id/edt_numSerie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="32dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/referencia"
@@ -20,28 +20,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/edt_precio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/precio"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_nombreProd" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
         android:id="@+id/edt_nombreProd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/nombreprod"
@@ -52,22 +37,6 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_numSerie" />
-
-    <EditText
-        android:id="@+id/edt_stock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/cantidad"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:textColorHint="#546E7A"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_precio" />
 
     <EditText
         android:id="@+id/edt_marca"
@@ -85,14 +54,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_stock" />
 
+    <EditText
+        android:id="@+id/edt_stock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/cantidad"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColorHint="#546E7A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_precio" />
+
+    <EditText
+        android:id="@+id/edt_precio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/precio"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_nombreProd" />
+
     <Button
         android:id="@+id/btn_addComp"
         android:layout_width="123dp"
         android:layout_height="50dp"
+        android:onClick="new_product"
         android:text="@string/crear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_marca" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_marca"
+        app:layout_constraintVertical_bias="0.681" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="CREAR NUEVO COMPONENTE"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

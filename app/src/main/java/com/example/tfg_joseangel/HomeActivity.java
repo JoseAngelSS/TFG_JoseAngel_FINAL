@@ -34,8 +34,8 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MostrarProducto.class);
         startActivity(intent);
     }
-    public void modificar_componentes(View view){
-        Intent intent = new Intent(this, ModificarProducto.class);
+    public void crear_componentes(View view){
+        Intent intent = new Intent(this, nuevo_producto.class);
         startActivity(intent);
     }
 }
