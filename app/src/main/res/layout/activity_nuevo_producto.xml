@@ -89,13 +89,12 @@
         android:id="@+id/btn_addComp"
         android:layout_width="123dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="32dp"
         android:onClick="new_product"
         android:text="@string/crear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_marca"
-        app:layout_constraintVertical_bias="0.681" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
@@ -109,5 +108,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_newproduct"
+        android:layout_width="134dp"
+        android:layout_height="128dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_addComp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_marca"
+        app:srcCompat="@drawable/caja" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

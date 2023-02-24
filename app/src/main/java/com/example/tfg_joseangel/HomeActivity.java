@@ -29,6 +29,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //Inicio Firebase auth
+        Auth = FirebaseAuth.getInstance();
+
     }
     public void mostrar_componentes(View view){
         Intent intent = new Intent(this, MostrarProducto.class);

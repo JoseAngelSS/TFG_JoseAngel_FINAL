@@ -46,7 +46,8 @@ public class nuevo_producto extends AppCompatActivity {
     private EditText edt_marca;
     public static final int NUEVA_IMAGEN = 1;
     Uri imagen_seleccionada = null;
-    //ImageView image_newproduct;
+
+    ImageView image_newproduct;
     @Override
     protected void onStart() {
         super.onStart();
@@ -67,18 +68,19 @@ public class nuevo_producto extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevo_producto);
+        //Auth = FirebaseAuth.getInstance();
 
         edt_numSerie = (EditText) findViewById(R.id.edt_numSerie);
         edt_nombreProd = (EditText) findViewById(R.id.edt_nombreProd);
         edt_precio = (EditText) findViewById(R.id.edt_precio);
         edt_stock = (EditText) findViewById(R.id.edt_stock);
         edt_marca = (EditText) findViewById(R.id.edt_marca);
-        //image_newproduct = (ImageView) findViewById(R.id.image_newproduct);
+        image_newproduct = (ImageView) findViewById(R.id.image_newproduct);
     }
 
     public void new_product(View view){
-        String nombre = String.valueOf(edt_nombreProd.getText());
         String idComp = String.valueOf(edt_numSerie.getText());
+        String nombre = String.valueOf(edt_nombreProd.getText());
         String precio = String.valueOf(edt_precio.getText());
         String cantidad = String.valueOf(edt_stock.getText());
         String idMar = String.valueOf(edt_marca.getText());
@@ -91,7 +93,7 @@ public class nuevo_producto extends AppCompatActivity {
         // codigo para guardar la imagen del usuario en firebase store
         if(imagen_seleccionada != null) {
             String carpeta = c.getNombre();
-            //ImagenesFirebase.subirFoto(carpeta,c.getNombre(), image_newproduct);
+            ImagenesFirebase.subirFoto(carpeta,c.getNombre(), image_newproduct);
         }
         Intent intent = new Intent(this, HomeActivity.class);
     }
@@ -115,7 +117,7 @@ public class nuevo_producto extends AppCompatActivity {
             Bitmap bitmap = null;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imagen_seleccionada);
-                //image_newproduct.setImageBitmap(bitmap);
+                image_newproduct.setImageBitmap(bitmap);
 
             } catch (IOException e) {
                 e.printStackTrace();

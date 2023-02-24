@@ -48,20 +48,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_det_edt"
         app:layout_constraintHorizontal_bias="0.296"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_det_foto"
-        app:layout_constraintVertical_bias="0.608" />
-
-    <ImageView
-        android:id="@+id/img_det_foto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_det_stock"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_det_edt"
@@ -72,9 +59,7 @@
         android:onClick="detalles_editar_componente"
         android:text="Editar producto"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_det_foto"
-        app:layout_constraintVertical_bias="0.608" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/edt_det_nombre"
@@ -121,5 +106,15 @@
         app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_det_nombre" />
+
+    <ImageView
+        android:id="@+id/img_det_caja"
+        android:layout_width="170dp"
+        android:layout_height="152dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_det_borrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_det_stock"
+        app:srcCompat="@drawable/caja" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

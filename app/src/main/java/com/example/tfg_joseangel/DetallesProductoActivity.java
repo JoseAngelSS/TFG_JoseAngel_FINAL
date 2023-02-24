@@ -28,7 +28,6 @@ public class DetallesProductoActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSICION_DEVUELTA =  "com.example.tfg_joseangel.detallesproductoactivity.posicion";
     public static final String EXTRA_TIPO = "com.example.tfg_joseangel.detallesproductoactivity.tipo";
-
     EditText edt_det_nombre = null;
     EditText edt_det_precio = null;
     EditText edt_det_marca = null;
@@ -37,7 +36,7 @@ public class DetallesProductoActivity extends AppCompatActivity {
     int posicion = -1;
     public static final int NUEVA_IMAGEN = 1;
     Uri imagen_seleccionada = null;
-    ImageView img_det_foto = null;
+    ImageView img_det_caja = null;
     private FirebaseAuth Auth;
 
     @Override
@@ -67,7 +66,7 @@ public class DetallesProductoActivity extends AppCompatActivity {
         edt_det_marca = (EditText) findViewById(R.id.edt_det_marca);
         edt_det_precio = (EditText) findViewById(R.id.edt_det_precio);
         edt_det_stock = (EditText) findViewById(R.id.edt_det_stock);
-        img_det_foto = (ImageView) findViewById(R.id.img_det_foto);
+        img_det_caja = (ImageView) findViewById(R.id.img_det_caja);
 
         Intent intent = getIntent();
         if(intent != null){
@@ -81,7 +80,7 @@ public class DetallesProductoActivity extends AppCompatActivity {
             //cargar foto
             byte[] fotobinaria = (byte[]) intent.getByteArrayExtra(ComponenteViewHolder.EXTRA_PRODUCTO_IMAGEN);
             Bitmap fotobitmap = ImagenesBlobBitmap.bytes_to_bitmap(fotobinaria, 200,200);
-            img_det_foto.setImageBitmap(fotobitmap);
+            img_det_caja.setImageBitmap(fotobitmap);
             // obtengo la posicion
             posicion = intent.getIntExtra(ComponenteViewHolder.EXTRA_POS,-1);
         }
@@ -108,7 +107,7 @@ public class DetallesProductoActivity extends AppCompatActivity {
             Bitmap bitmap = null;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imagen_seleccionada);
-                img_det_foto.setImageBitmap(bitmap);
+                img_det_caja.setImageBitmap(bitmap);
 
                 //---------------------------------------------
 
@@ -132,11 +131,11 @@ public class DetallesProductoActivity extends AppCompatActivity {
         //--------------------------------------------
         if(id_previo.equalsIgnoreCase(nombre))
         {
-            myRef.child("alumnoshashmap").child(id_previo).removeValue();
-            Toast.makeText(this,"alumno borrado correctamente",Toast.LENGTH_LONG).show();
+            myRef.child("compshashmap").child(id_previo).removeValue();
+            Toast.makeText(this,"componente eliminado correctamente",Toast.LENGTH_LONG).show();
         }
         else{
-            Toast.makeText(this,"no se pudo borrar el alumno",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"error al borrar",Toast.LENGTH_LONG).show();
         }
         // borramos la imagen del firebase store
         String carpeta = c.getNombre();
@@ -159,14 +158,14 @@ public class DetallesProductoActivity extends AppCompatActivity {
         //--------------------------------------------
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
-        myRef.child("productoshashmap").child(id_previo).removeValue();
-        myRef.child("productoshashmap").child(c.getNombre()).setValue(c);
+        myRef.child("compshashmap").child(id_previo).removeValue();
+        myRef.child("compshashmap").child(c.getNombre()).setValue(c);
         Toast.makeText(this,"PRODUCTO MODIFICADO",Toast.LENGTH_LONG).show();
         //--------------------------------------------------
         if(imagen_seleccionada != null || !id_previo.equalsIgnoreCase(c.getNombre())) {
             String carpeta = c.getNombre();
             ImagenesFirebase.borrarFoto(id_previo,id_previo);
-            ImagenesFirebase.subirFoto(carpeta,c.getNombre(), img_det_foto);
+            ImagenesFirebase.subirFoto(carpeta,c.getNombre(), img_det_caja);
         }
         Intent replyIntent = new Intent();
         replyIntent.putExtra(EXTRA_POSICION_DEVUELTA, posicion);
