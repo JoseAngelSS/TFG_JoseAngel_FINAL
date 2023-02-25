@@ -102,7 +102,7 @@ public class fragment_register extends Fragment {
                     startActivity(intent);
 
                 }else{
-                    Toast.makeText(getActivity(), "ERROR ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "ERROR CREDENCIALES ERROENAS", Toast.LENGTH_SHORT).show();
                     Log.e("ERROR", "onComplete: ", task.getException() );
                 }
             }

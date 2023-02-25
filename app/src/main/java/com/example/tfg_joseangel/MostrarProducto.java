@@ -122,7 +122,7 @@ public class MostrarProducto extends AppCompatActivity {
         Intent intent = new Intent(this, nuevo_producto.class);
         startActivity(intent);
     }
-    public void buscarAlumnos1(View view) {
+    public void buscarProducto1(View view) {
 
         String texto = String.valueOf(edt_buscar.getText());
         myRefproductos1 = FirebaseDatabase.getInstance().getReference("compshashmap");

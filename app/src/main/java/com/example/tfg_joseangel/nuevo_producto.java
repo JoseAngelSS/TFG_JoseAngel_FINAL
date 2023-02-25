@@ -96,6 +96,7 @@ public class nuevo_producto extends AppCompatActivity {
             ImagenesFirebase.subirFoto(carpeta,c.getNombre(), image_newproduct);
         }
         Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
     //------------------------------------------
     public void cambiar_imagen(View view) {
