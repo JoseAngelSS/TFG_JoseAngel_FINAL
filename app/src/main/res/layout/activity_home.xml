@@ -7,40 +7,60 @@
     tools:context=".HomeActivity">
 
     <Button
-        android:id="@+id/bt_crear"
-        android:layout_width="169dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="124dp"
-        android:onClick="crear_componentes"
-        android:text="@string/crear_producto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/bt_mostrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="52dp"
         android:onClick="mostrar_componentes"
         android:text="@string/mostrar_producto"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_crear" />
+
+    <Button
+        android:id="@+id/bt_crear"
+        android:layout_width="169dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="76dp"
+        android:onClick="crear_componentes"
+        android:text="@string/crear_producto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <Button
         android:id="@+id/btn_out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="212dp"
+        android:layout_marginBottom="124dp"
         android:backgroundTint="#BC0917"
+        android:onClick="cerrarsesion"
         android:text="CERRAR SESIÓN"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_perfil"
+        android:layout_width="56dp"
+        android:layout_height="53dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ajustes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
