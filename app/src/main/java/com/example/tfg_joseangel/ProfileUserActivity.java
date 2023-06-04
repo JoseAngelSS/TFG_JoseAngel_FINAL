@@ -1,18 +1,16 @@
 package com.example.tfg_joseangel;
 
-import android.os.Bundle;
-
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.tfg_joseangel.clases.Usuario;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,40 +20,42 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProfileFragment extends Fragment {
+public class ProfileUserActivity extends AppCompatActivity {
 
-    TextView profile_name,profile_mail,profile_pass;
+    //TextView profile_name,profile_mail,profile_pass;
     EditText editarpersona, editarcorreo, editarpass;
     ImageView img_edt_user;
-    Button btneditaruser,btnguardar;
+    Button btneditaruser,btnguardar, btnvolver;
     String pass;
+    public static final int NUEVA_IMAGEN = 1;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference Ref;
     FirebaseUser user;
     FirebaseAuth auth;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
+        setContentView(R.layout.activity_profile_user);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
-        btnguardar = root.findViewById(R.id.btnguardar);
-        btneditaruser = root.findViewById(R.id.btneditaruser);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        Ref = firebaseDatabase.getReference("usuarios");
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
 
-        editarpersona = root.findViewById(R.id.editarpersona);
-        editarpass = root.findViewById(R.id.editarpass);
-        editarcorreo = root.findViewById(R.id.editarcorreo);
+        btnguardar = (Button)findViewById(R.id.btnguardar);
+        btneditaruser = (Button) findViewById(R.id.btneditaruser);
+        btnvolver = (Button) findViewById(R.id.btn_volver);
 
-        img_edt_user = root.findViewById(R.id.img_edt_user);
+        editarpersona = (EditText) findViewById(R.id.editarpersona);
+        editarpass = (EditText) findViewById(R.id.editarpass);
+        editarcorreo = (EditText) findViewById(R.id.editarcorreo);
+
+        img_edt_user = (ImageView) findViewById(R.id.img_edt_user);
 
         Log.d("actuliza", "Actualizar " + pass);
 
@@ -67,7 +67,6 @@ public class ProfileFragment extends Fragment {
 
             }
         });
-
         btnguardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,8 +84,6 @@ public class ProfileFragment extends Fragment {
                 Ref.updateChildren(updateProfile);
             }
         });
-
-        return root;
     }
 
     public void datos_logueado(){
@@ -106,7 +103,6 @@ public class ProfileFragment extends Fragment {
 
                     }
                 }
-
             }
 
             @Override
@@ -116,6 +112,17 @@ public class ProfileFragment extends Fragment {
         });
     }
 
+    public void cambiar_imagen_perfil(View view){
+        Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        getIntent.setType("image/*");
+
+        Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        pickIntent.setType("image/*");
+
+        Intent chooserIntent = Intent.createChooser(getIntent, "Selecciona una imagen");
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent});
+        startActivityForResult(chooserIntent, NUEVA_IMAGEN);
+    }
 
     public void E01_edit_profile(){
         editarpersona.setEnabled(true);
@@ -131,5 +138,10 @@ public class ProfileFragment extends Fragment {
         editarpass.setEnabled(false);
         btneditaruser.setVisibility(View.VISIBLE);
         btnguardar.setVisibility(View.INVISIBLE);
+    }
+
+    public void volver_menu(View view){
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 }

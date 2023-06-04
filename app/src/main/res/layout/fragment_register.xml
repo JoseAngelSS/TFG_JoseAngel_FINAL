@@ -38,15 +38,13 @@
         android:autofillHints=""
         android:importantForAutofill="no" />
 
-    <EditText
-        android:id="@+id/edt_pass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="211dp"
+        android:layout_height="62dp"
         android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/password"
+        android:hint="Introduce tu clave"
         android:importantForAutofill="no"
-        android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColorHint="#546E7A"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +52,16 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_mail"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_pass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="15"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_reg"
@@ -64,8 +71,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_pass"
-        app:layout_constraintVertical_bias="0.078" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
     <TextView
         android:id="@+id/textView2"

@@ -6,8 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".nuevo_producto">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.9"
+        android:scaleType="centerCrop"
+        android:src="@drawable/estesi" />
+
     <EditText
-        android:id="@+id/edt_numSerie"
+        android:id="@+id/edt_numSerieC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -16,14 +23,14 @@
         android:hint="@string/referencia"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textColorHint="#546E7A"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/edt_nombreProd"
+        android:id="@+id/edt_nombreProdC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -32,14 +39,14 @@
         android:hint="@string/nombreprod"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textColorHint="#546E7A"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_numSerie" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_numSerieC" />
 
     <EditText
-        android:id="@+id/edt_marca"
+        android:id="@+id/edt_marcaC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -48,14 +55,14 @@
         android:hint="@string/marca"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textColorHint="#546E7A"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_stock" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_stockC" />
 
     <EditText
-        android:id="@+id/edt_stock"
+        android:id="@+id/edt_stockC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -64,14 +71,14 @@
         android:hint="@string/cantidad"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textColorHint="#546E7A"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_precio" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_precioC" />
 
     <EditText
-        android:id="@+id/edt_precio"
+        android:id="@+id/edt_precioC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -80,20 +87,23 @@
         android:hint="@string/precio"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_nombreProd" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_nombreProdC" />
 
     <Button
         android:id="@+id/btn_addComp"
         android:layout_width="123dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="@color/teal_200"
         android:onClick="new_product"
         android:text="@string/crear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.802"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -101,10 +111,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:foregroundTint="@color/black"
         android:text="CREAR NUEVO COMPONENTE"
         android:textAlignment="center"
         android:textSize="24sp"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -113,10 +124,25 @@
         android:id="@+id/image_newproduct"
         android:layout_width="134dp"
         android:layout_height="128dp"
+        android:contentDescription="insertar imagen"
+        android:onClick="cambiar_imagen"
         app:layout_constraintBottom_toTopOf="@+id/btn_addComp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_marca"
+        app:layout_constraintTop_toBottomOf="@+id/edt_marcaC"
         app:srcCompat="@drawable/caja" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="123dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/teal_200"
+        android:onClick="volver"
+        android:text="volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_addComp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_newproduct"
+        app:layout_constraintVertical_bias="0.588" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

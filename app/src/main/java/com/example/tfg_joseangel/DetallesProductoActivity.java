@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.tfg_joseangel.RecyclerView.ComponenteViewHolder;
 import com.example.tfg_joseangel.clases.Componente;
+import com.example.tfg_joseangel.clases.Venta;
 import com.example.tfg_joseangel.utilidades.ImagenesBlobBitmap;
 import com.example.tfg_joseangel.utilidades.ImagenesFirebase;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,16 +29,24 @@ public class DetallesProductoActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSICION_DEVUELTA =  "com.example.tfg_joseangel.detallesproductoactivity.posicion";
     public static final String EXTRA_TIPO = "com.example.tfg_joseangel.detallesproductoactivity.tipo";
+
+    public
     EditText edt_det_nombre = null;
     EditText edt_det_precio = null;
     EditText edt_det_marca = null;
     EditText edt_det_stock = null;
+    EditText edt_det_ref = null;
+    EditText edt_det_udvend = null;
+
+    EditText edt_det_idventa = null;
     String id_previo = "";
     int posicion = -1;
     public static final int NUEVA_IMAGEN = 1;
     Uri imagen_seleccionada = null;
     ImageView img_det_caja = null;
     private FirebaseAuth Auth;
+    private int stock;
+    private int udvend;
 
     @Override
     public void onStart() {
@@ -62,10 +71,13 @@ public class DetallesProductoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles_producto);
 
-        edt_det_nombre = (EditText) findViewById(R.id.edt_det_nombre);
+        edt_det_nombre = (EditText) findViewById(R.id.edt_det_refventa);
         edt_det_marca = (EditText) findViewById(R.id.edt_det_marca);
-        edt_det_precio = (EditText) findViewById(R.id.edt_det_precio);
+        edt_det_precio = (EditText) findViewById(R.id.edt_det_idcomp);
         edt_det_stock = (EditText) findViewById(R.id.edt_det_stock);
+        edt_det_ref = (EditText) findViewById(R.id.edt_det_ref);
+        edt_det_udvend = (EditText) findViewById(R.id.edt_det_udvendDP);
+        edt_det_idventa = (EditText) findViewById(R.id.edt_det_idventa);
         img_det_caja = (ImageView) findViewById(R.id.img_det_caja);
 
         Intent intent = getIntent();
@@ -75,6 +87,9 @@ public class DetallesProductoActivity extends AppCompatActivity {
             edt_det_precio.setText(c.getPrecio());
             edt_det_marca.setText(c.getIdMar());
             edt_det_stock.setText(c.getCantidad());
+            stock = Integer.valueOf(c.getCantidad());
+
+            edt_det_ref.setText(c.getIdComp());
             id_previo = c.getNombre();
 
             //cargar foto
@@ -126,8 +141,9 @@ public class DetallesProductoActivity extends AppCompatActivity {
         String precio = String.valueOf(edt_det_precio.getText());
         String marca = String.valueOf(edt_det_marca.getText());
         String cantidad = String.valueOf(edt_det_stock.getText());
+        String idComp = String.valueOf(edt_det_ref.getText());
 
-        Componente c = new Componente(nombre, precio, marca, cantidad);
+        Componente c = new Componente(nombre, precio, marca, cantidad, idComp);
         //--------------------------------------------
         if(id_previo.equalsIgnoreCase(nombre))
         {
@@ -154,12 +170,14 @@ public class DetallesProductoActivity extends AppCompatActivity {
         String precio = String.valueOf(edt_det_precio.getText());
         String marca = String.valueOf(edt_det_marca.getText());
         String cantidad = String.valueOf(edt_det_stock.getText());
-        Componente c = new Componente(nombre, precio, marca, cantidad);
+        String idComp = String.valueOf(edt_det_ref.getText());
+
+        Componente c = new Componente(nombre, precio, marca, cantidad, idComp);
         //--------------------------------------------
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
         myRef.child("compshashmap").child(id_previo).removeValue();
-        myRef.child("compshashmap").child(c.getNombre()).setValue(c);
+        myRef.child("compshashmap").child(c.getIdComp()).setValue(c);
         Toast.makeText(this,"PRODUCTO MODIFICADO",Toast.LENGTH_LONG).show();
         //--------------------------------------------------
         if(imagen_seleccionada != null || !id_previo.equalsIgnoreCase(c.getNombre())) {
@@ -172,6 +190,36 @@ public class DetallesProductoActivity extends AppCompatActivity {
         replyIntent.putExtra(EXTRA_TIPO, "edicion");
         setResult(RESULT_OK, replyIntent);
         finish();
+    }
+
+    public void vender(View view){
+
+        udvend = Integer.valueOf(String.valueOf(edt_det_udvend.getText()));
+        String nombrevendido = String.valueOf(edt_det_ref.getText());
+        String cantidad = String.valueOf(edt_det_udvend.getText());
+        String ref = String.valueOf(edt_det_idventa.getText());
+
+
+        Venta v = new Venta(ref, nombrevendido, cantidad);
+
+        int nuevo_stock = stock-udvend;
+        if(nuevo_stock<0)
+        {
+            Toast.makeText(this, "No hay suficiente cantidad", Toast.LENGTH_LONG).show();
+            return;
+        }
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
+        myRef.child("ventashashmap").child(v.getRef()).setValue(v);
+        myRef.child("compshashmap").child(v.getIdCompvend()).child("cantidad").setValue(String.valueOf(nuevo_stock));
+
+        Toast.makeText(DetallesProductoActivity.this, "Producto añadido con éxito", Toast.LENGTH_LONG).show();
+
+        /*if(imagen_seleccionada != null) {
+            String carpeta = v.getIdCompvend();
+            //ImagenesFirebase.subirFoto(carpeta,v.getIdCompvend(), image_newproduct);
+        }*/
+        Intent intent = new Intent(this, VentasActivity.class);
+        startActivity(intent);
     }
 
     public void cambiar_imagen_det(View view) {

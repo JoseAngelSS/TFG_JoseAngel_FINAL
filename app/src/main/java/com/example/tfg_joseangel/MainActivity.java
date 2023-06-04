@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
+        //DatabaseReference myRef = firebaseDatabase.getReference();
+       // myRef.child("prueba").setValue("hola mundo");
         user = auth.getCurrentUser();
 
         tb1 = findViewById(R.id.tabL);

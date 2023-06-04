@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MostrarProducto">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.9"
+        android:scaleType="centerCrop"
+        android:src="@drawable/estesi" />
+
     <Button
         android:id="@+id/btn_addprod"
         android:layout_width="320dp"
@@ -13,27 +20,30 @@
         android:layout_marginTop="16dp"
         android:onClick="addProducto"
         android:text="Nuevo componente"
+        android:backgroundTint="@color/teal_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_producto"
-        android:layout_width="373dp"
-        android:layout_height="528dp"
+        android:layout_width="369dp"
+        android:layout_height="492dp"
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_buscar" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_buscarProducto"
+        app:layout_constraintVertical_bias="0.181" />
 
     <EditText
-        android:id="@+id/edt_buscar"
-        android:layout_width="198dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:id="@+id/edt_buscarProducto"
+        android:layout_width="215dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@drawable/ic_launcher_search_foreground"
         android:ems="10"
         android:hint="Nombre producto"
         android:inputType="textPersonName"
@@ -41,14 +51,27 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_addprod" />
 
     <Button
-        android:id="@+id/btn_buscar"
+        android:id="@+id/btn_buscarprodutco"
         android:layout_width="112dp"
         android:layout_height="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:onClick="buscarProducto1"
         android:text="buscar"
+        android:backgroundTint="@color/teal_200"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintStart_toEndOf="@+id/edt_buscar"
+        app:layout_constraintHorizontal_bias="0.584"
+        app:layout_constraintStart_toEndOf="@+id/edt_buscarProducto"
         app:layout_constraintTop_toBottomOf="@+id/btn_addprod" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="volver"
+        android:text="volver"
+        android:backgroundTint="@color/teal_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_producto" />
 </androidx.constraintlayout.widget.ConstraintLayout>

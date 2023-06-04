@@ -1,13 +1,11 @@
 package com.example.tfg_joseangel;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,9 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class HomeActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
-    public static ImageView imageView;
+    public static ImageButton imageButton;
     private FirebaseAuth Auth;
-    Toolbar toolbar;
     FirebaseUser logged_user;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference myRef;
@@ -41,23 +38,8 @@ public class HomeActivity extends AppCompatActivity {
 
         //Inicio Firebase auth
         Auth = FirebaseAuth.getInstance();
-        myRef = firebaseDatabase.getReference("User");
-        logged_user = Auth.getCurrentUser();
 
-        imageView = (ImageView)findViewById(R.id.img_perfil);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toolbar.setTitle("Perfil");
-                ProfileFragment fp = new ProfileFragment();
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container,fp)
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        imageButton= (ImageButton)findViewById(R.id.imgButton);
 
     }
     public void mostrar_componentes(View view){
@@ -72,6 +54,15 @@ public class HomeActivity extends AppCompatActivity {
         Auth.signOut();
         Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+    public void verperfil(View view){
+        Intent intent = new Intent(this, ProfileUserActivity.class);
+        startActivity(intent);
+    }
+
+    public void verventas(View view){
+        Intent intent = new Intent(this, VentasActivity.class);
         startActivity(intent);
     }
 }

@@ -26,10 +26,19 @@ public class ComponenteViewHolder extends RecyclerView.ViewHolder implements Vie
     private TextView txt_marca_item;
     private TextView txt_stock_item;
     private TextView txt_precio_item;
+    private TextView txt_ref_item;
     private ImageView img_item_prod;
 
     private ListaComponentesAdapter lca;
     private Context contexto;
+
+    public ImageView getImg_item_prod() {
+        return img_item_prod;
+    }
+
+    public void setImg_item_prod(ImageView img_item_prod) {
+        this.img_item_prod = img_item_prod;
+    }
 
     public ComponenteViewHolder(@NonNull View itemView, ListaComponentesAdapter listaComponentesAdapter) {
         super(itemView);
@@ -38,6 +47,7 @@ public class ComponenteViewHolder extends RecyclerView.ViewHolder implements Vie
         txt_precio_item = (TextView) itemView.findViewById(R.id.txt_precio_item);
         txt_stock_item = (TextView) itemView.findViewById(R.id.txt_stock_item);
         txt_marca_item = (TextView) itemView.findViewById(R.id.txt_marca_item);
+        txt_ref_item = (TextView) itemView.findViewById(R.id.txt_ref_item);
 
         img_item_prod = (ImageView) itemView.findViewById(R.id.img_item_prod);
         //-----------------------------------------------------------------------------
@@ -64,6 +74,9 @@ public class ComponenteViewHolder extends RecyclerView.ViewHolder implements Vie
 
     public TextView getTxt_item_precio(){return txt_precio_item;}
     public void setTxt_precio_item(TextView txt_precio_item){this.txt_precio_item = txt_precio_item;}
+
+    public TextView getTxt_ref_item(){return txt_ref_item;}
+    public void setTxt_ref_item(TextView txt_ref_item){this.txt_ref_item = txt_ref_item;}
 
     public ListaComponentesAdapter getLpa() {
         return lca;

@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -16,19 +15,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.tfg_joseangel.RecyclerView.ComponenteFirebaseUIViewHolder;
 import com.example.tfg_joseangel.RecyclerView.ListaComponentesAdapter;
-import com.example.tfg_joseangel.RecyclerView.ListaComponentesFirebaseUIAdapter;
 import com.example.tfg_joseangel.clases.Componente;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -60,23 +54,16 @@ public class MostrarProducto extends AppCompatActivity {
     private DatabaseReference myRefproductos = null;
     private DatabaseReference myRefproductos1 = null;
 
-    //FirebaseRecyclerOptions<Componente> options = null;
-    //FirebaseRecyclerAdapter<Componente, ComponenteFirebaseUIViewHolder> adapter;
     private ArrayList<Componente> componentes;
     private EditText edt_buscar;
     public static int PETICION1 = 1;
 
-    /*@Override
-    protected void onStop() {
-        super.onStop();
-        adapter.stopListening();
-    }*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar_producto);
         rv_producto = (RecyclerView) findViewById(R.id.rv_producto);
-        edt_buscar = (EditText) findViewById(R.id.edt_buscar);
+        edt_buscar = (EditText) findViewById(R.id.edt_buscarProducto);
         //-------------------------------------------------------------
         Auth = FirebaseAuth.getInstance();
         componentes = new ArrayList<Componente>();
@@ -85,9 +72,6 @@ public class MostrarProducto extends AppCompatActivity {
         rv_producto.setAdapter(adaptadorComponentes);
 
         myRefproductos = FirebaseDatabase.getInstance().getReference("compshashmap");
-        //Query query = databaseReference.child("productoshashmap")
-        //options = new FirebaseRecyclerOptions.Builder<Alumno>().setQuery(query, Alumno.class).build();
-        //adapter = new ListaAlumnosFirebaseUIAdapter(options, this);
         myRefproductos.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
@@ -170,8 +154,10 @@ public class MostrarProducto extends AppCompatActivity {
             else{
                 adaptadorComponentes.notifyDataSetChanged();
             }
-            // this.recreate();
-            //  getWindow().getDecorView().findViewById(android.R.id.content).invalidate();
         }
+    }
+    public void volver(View view){
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 }

@@ -6,17 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".DetallesProductoActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.9"
+        android:scaleType="centerCrop"
+        android:src="@drawable/estesi" />
+
     <EditText
-        android:id="@+id/edt_det_precio"
+        android:id="@+id/edt_det_idcomp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
-        android:hint="Precio"
+        android:hint="@string/preciodet"
         android:inputType="textPersonName"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,54 +32,78 @@
 
     <EditText
         android:id="@+id/edt_det_stock"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="168dp"
+        android:layout_height="48dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
-        android:hint="Stock"
+        android:hint="@string/stockdet"
         android:inputType="textPersonName"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_det_precio" />
-
-    <Button
-        android:id="@+id/btn_det_borrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="48dp"
-        android:onClick="detalles_borrar_componente"
-        android:text="Borrar producto"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_det_edt"
-        app:layout_constraintHorizontal_bias="0.296"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_det_idcomp" />
 
     <Button
         android:id="@+id/btn_det_edt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="48dp"
+        android:layout_width="111dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="44dp"
         android:onClick="detalles_editar_componente"
-        android:text="Editar producto"
+        android:text="EDITAR"
+        android:backgroundTint="@color/teal_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <Button
+        android:id="@+id/bt_vender"
+        android:layout_width="111dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="44dp"
+        android:onClick="vender"
+        android:text="VENDER"
+        android:backgroundTint="@color/teal_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_det_edt"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/btn_det_borrar"
+        app:layout_constraintTop_toBottomOf="@+id/img_det_caja"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btn_det_borrar"
+        android:layout_width="111dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="44dp"
+        android:onClick="detalles_borrar_componente"
+        android:text="BORRAR"
+        android:backgroundTint="@color/teal_200"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_det_edt"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <EditText
-        android:id="@+id/edt_det_nombre"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/edt_det_refventa"
+        android:layout_width="170dp"
+        android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
-        android:hint="Nombre del componente"
+        android:hint="@string/nombre_del_componentedet"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,37 +116,86 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
-        android:text="Detalles del producto"
+        android:text="@string/detalles_del_producto"
         android:textAlignment="center"
         android:textSize="34sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edt_det_marca"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="170dp"
+        android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
-        android:hint="Marca"
+        android:hint="@string/marcadet"
+        android:importantForAutofill="yes"
         android:inputType="textPersonName"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_det_nombre" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_det_refventa" />
 
     <ImageView
         android:id="@+id/img_det_caja"
-        android:layout_width="170dp"
-        android:layout_height="152dp"
+        android:layout_width="142dp"
+        android:layout_height="123dp"
+        android:contentDescription="imagen caja"
+        android:onClick="cambiar_imagen_det"
         app:layout_constraintBottom_toTopOf="@+id/btn_det_borrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_det_stock"
+        app:layout_constraintVertical_bias="0.476"
         app:srcCompat="@drawable/caja" />
+
+    <EditText
+        android:id="@+id/edt_det_ref"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Nº referencia"
+        android:inputType="text"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toEndOf="@+id/edt_det_refventa"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/edt_det_udvendDP"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="Uds. vend (opcional)"
+        android:inputType="text"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/img_det_caja"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toEndOf="@+id/edt_det_stock"
+        app:layout_constraintTop_toBottomOf="@+id/edt_det_idcomp"
+        app:layout_constraintVertical_bias="0.413" />
+
+    <EditText
+        android:id="@+id/edt_det_idventa"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="id.venta (opcional)"
+        android:inputType="text"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/edt_det_idcomp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edt_det_marca"
+        app:layout_constraintTop_toBottomOf="@+id/edt_det_ref" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

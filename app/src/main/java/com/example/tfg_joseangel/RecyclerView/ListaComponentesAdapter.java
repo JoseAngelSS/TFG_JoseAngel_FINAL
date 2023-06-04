@@ -59,11 +59,11 @@ public class ListaComponentesAdapter extends RecyclerView.Adapter<ComponenteView
         Componente c = this.getComponentes().get(position);
         //        cargo la imagen desde la base de datos
         //-----------------------------------------------------------------
-       /* String carpeta = c.getNombre();
-        ImageView imagen = holder.getImg_item_prod);
+        String carpeta = c.getNombre();
+        ImageView imagen = holder.getImg_item_prod();
         ImagenesFirebase.descargarFoto(carpeta,c.getNombre(),imagen);
         ImageView imagen1 = imagen;
-        holder.setImg_item_prod(imagen);*/
+        holder.setImg_item_prod(imagen);
         //----------------------------------------------------------------------
         holder.getTxt_item_nombre().setText("nombre: " + c.getNombre());
         holder.getTxt_item_stock().setText("stock: " + c.getCantidad());

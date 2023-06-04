@@ -29,19 +29,26 @@ import com.example.tfg_joseangel.databinding.FragmentLoginBinding;
 import com.example.tfg_joseangel.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginFragment extends Fragment {
 
-    private EditText login_email, login_pass;
+    private EditText login_email;
+    private TextInputEditText login_pass;
     private FirebaseAuth auth;
+    private DatabaseReference database;
     Button bt_login;
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance().getReference();
+
 
         if(auth.getCurrentUser() == null){
             auth.signOut();
@@ -55,6 +62,7 @@ public class LoginFragment extends Fragment {
         login_email= root.findViewById(R.id.login_email);
         login_pass = root.findViewById(R.id.login_pass);
         bt_login = root.findViewById(R.id.bt_login);
+
 
         bt_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,8 +91,10 @@ public class LoginFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    FirebaseUser user = auth.getCurrentUser();
+                    //FirebaseUser user = auth.getCurrentUser();
+                    String user = auth.getCurrentUser().getUid();
                     Intent intent = new Intent(getActivity(), HomeActivity.class);
+                    intent.putExtra("user", user);
                     startActivity(intent);
                 }else{
                     Toast.makeText(getActivity(), "Correo o clave INCORRECTOS, revise sus credenciales", Toast.LENGTH_LONG).show();
