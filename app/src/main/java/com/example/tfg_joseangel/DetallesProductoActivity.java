@@ -195,7 +195,7 @@ public class DetallesProductoActivity extends AppCompatActivity {
         finish();
     }
 
-    //metodo para vender (es igual que el de nuevo_producto)
+    //metodo para vender (igual que el de nuevo_producto)
     public void vender(View view){
 
         udvend = Integer.valueOf(String.valueOf(edt_det_udvend.getText()));
