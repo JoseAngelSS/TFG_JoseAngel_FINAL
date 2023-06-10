@@ -81,8 +81,8 @@ public class DetalleVentaActivity extends AppCompatActivity {
         //--------------------------------------------
         if(id_previo.equalsIgnoreCase(refventa))
         {
-            myRef.child("compshashmap").child(id_previo).removeValue();
-            Toast.makeText(this,"componente eliminado correctamente",Toast.LENGTH_LONG).show();
+            myRef.child("ventashashmap").child(id_previo).removeValue();
+            Toast.makeText(this,"venta eliminada correctamente",Toast.LENGTH_LONG).show();
         }
         else{
             Toast.makeText(this,"error al borrar",Toast.LENGTH_LONG).show();
