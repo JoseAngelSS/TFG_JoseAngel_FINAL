@@ -195,6 +195,7 @@ public class DetallesProductoActivity extends AppCompatActivity {
         finish();
     }
 
+    //metodo para vender (es igual que el de nuevo_producto)
     public void vender(View view){
 
         udvend = Integer.valueOf(String.valueOf(edt_det_udvend.getText()));
@@ -224,7 +225,7 @@ public class DetallesProductoActivity extends AppCompatActivity {
         Intent intent = new Intent(this, VentasActivity.class);
         startActivity(intent);
     }
-
+//metodo para seleccionar otra imagen
     public void cambiar_imagen_det(View view) {
         Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
         getIntent.setType("image/*");
