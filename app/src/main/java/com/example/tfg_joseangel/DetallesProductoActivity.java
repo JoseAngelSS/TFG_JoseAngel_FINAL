@@ -31,8 +31,8 @@ public class DetallesProductoActivity extends AppCompatActivity {
     public static final String EXTRA_TIPO = "com.example.tfg_joseangel.detallesproductoactivity.tipo";
 
     public
-    EditText edt_det_nombre = null;
-    EditText edt_det_precio = null;
+    EditText edt_det_nombreproducto = null;
+    EditText edt_det_preciocomp = null;
     EditText edt_det_marca = null;
     EditText edt_det_stock = null;
     EditText edt_det_ref = null;
@@ -71,9 +71,12 @@ public class DetallesProductoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles_producto);
 
-        edt_det_nombre = (EditText) findViewById(R.id.edt_det_refventa);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
+
+        edt_det_nombreproducto = (EditText) findViewById(R.id.edt_det_nombreproducto);
         edt_det_marca = (EditText) findViewById(R.id.edt_det_marca);
-        edt_det_precio = (EditText) findViewById(R.id.edt_det_idcomp);
+        edt_det_preciocomp = (EditText) findViewById(R.id.edt_det_preciocomp);
         edt_det_stock = (EditText) findViewById(R.id.edt_det_stock);
         edt_det_ref = (EditText) findViewById(R.id.edt_det_ref);
         edt_det_udvend = (EditText) findViewById(R.id.edt_det_udvendDP);
@@ -83,14 +86,13 @@ public class DetallesProductoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent != null){
             Componente c = (Componente)intent.getSerializableExtra(ComponenteViewHolder.EXTRA_PRODUCTO_ITEM);
-            edt_det_nombre.setText(c.getNombre());
-            edt_det_precio.setText(c.getPrecio());
+            edt_det_nombreproducto.setText(c.getNombre());
+            edt_det_preciocomp.setText(c.getPrecio());
             edt_det_marca.setText(c.getIdMar());
             edt_det_stock.setText(c.getCantidad());
             stock = Integer.valueOf(c.getCantidad());
-
             edt_det_ref.setText(c.getIdComp());
-            id_previo = c.getNombre();
+            id_previo = c.getIdComp();
 
             //cargar foto
             byte[] fotobinaria = (byte[]) intent.getByteArrayExtra(ComponenteViewHolder.EXTRA_PRODUCTO_IMAGEN);
@@ -137,15 +139,15 @@ public class DetallesProductoActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
 
-        String nombre = String.valueOf(edt_det_nombre.getText());
-        String precio = String.valueOf(edt_det_precio.getText());
-        String marca = String.valueOf(edt_det_marca.getText());
-        String cantidad = String.valueOf(edt_det_stock.getText());
         String idComp = String.valueOf(edt_det_ref.getText());
+        String nombre = String.valueOf(edt_det_nombreproducto.getText());
+        String precio = String.valueOf(edt_det_preciocomp.getText());
+        String cantidad = String.valueOf(edt_det_stock.getText());
+        String marca = String.valueOf(edt_det_marca.getText());
 
-        Componente c = new Componente(nombre, precio, marca, cantidad, idComp);
+        Componente c = new Componente(idComp, nombre,  precio, cantidad, marca);
         //--------------------------------------------
-        if(id_previo.equalsIgnoreCase(nombre))
+        if(id_previo.equalsIgnoreCase(idComp))
         {
             myRef.child("compshashmap").child(id_previo).removeValue();
             Toast.makeText(this,"componente eliminado correctamente",Toast.LENGTH_LONG).show();
@@ -166,14 +168,15 @@ public class DetallesProductoActivity extends AppCompatActivity {
 
     //metodo para editar el componente
     public void detalles_editar_componente(View view) {
-        String nombre = String.valueOf(edt_det_nombre.getText());
-        String precio = String.valueOf(edt_det_precio.getText());
+        String nombre = String.valueOf(edt_det_nombreproducto.getText());
+        String precio = String.valueOf(edt_det_preciocomp.getText());
         String marca = String.valueOf(edt_det_marca.getText());
         String cantidad = String.valueOf(edt_det_stock.getText());
         String idComp = String.valueOf(edt_det_ref.getText());
 
-        Componente c = new Componente(nombre, precio, marca, cantidad, idComp);
+        Componente c = new Componente(idComp, nombre,  precio, cantidad, marca);
         //--------------------------------------------
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
         myRef.child("compshashmap").child(id_previo).removeValue();

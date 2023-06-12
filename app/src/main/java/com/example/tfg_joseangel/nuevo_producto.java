@@ -91,6 +91,7 @@ public class nuevo_producto extends AppCompatActivity {
                     String idMar = String.valueOf(edt_marca.getText());
                     Componente c = new Componente(idComp, nombre,  precio, cantidad, idMar);
 
+
                     // Guardar el producto en la base de datos
                     DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
                     myRef.child("compshashmap").child(c.getIdComp()).setValue(c);

@@ -14,7 +14,7 @@
         android:src="@drawable/estesi" />
 
     <EditText
-        android:id="@+id/edt_det_idcomp"
+        android:id="@+id/edt_det_preciocomp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_det_refventa" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_det_nombreproducto" />
 
     <EditText
         android:id="@+id/edt_det_stock"
@@ -42,10 +42,10 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_det_idcomp" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_det_preciocomp" />
 
     <EditText
-        android:id="@+id/edt_det_refventa"
+        android:id="@+id/edt_det_nombreproducto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"

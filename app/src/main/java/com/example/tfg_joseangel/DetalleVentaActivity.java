@@ -54,8 +54,8 @@ public class DetalleVentaActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
 
-       edt_det_refventa = (EditText) findViewById(R.id.edt_det_refventa);
-       edt_det_idcomp = (EditText) findViewById(R.id.edt_det_idcomp);
+       edt_det_refventa = (EditText) findViewById(R.id.edt_det_nombreproducto);
+       edt_det_idcomp = (EditText) findViewById(R.id.edt_det_preciocomp);
        edt_det_cantvend = (EditText) findViewById(R.id.edt_det_stock);
 
         Intent intent = getIntent();
